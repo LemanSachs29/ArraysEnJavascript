@@ -47,7 +47,7 @@
                 method: "Array.prototype.at()",
                 description: "Accede al elemento en una posición específica (soporta índices negativos).",
                 example: `let array = [10, 20, 30, 40];
-                          let result = array.at(-1); // Devuelve 40`,
+let result = array.at(-1); // Devuelve 40`,
                 execute: () => {
                     let array = [10, 20, 30, 40];
                     return array.at(-1); // Devuelve 40
@@ -69,13 +69,312 @@ let result = array1.concat(array2);`,
                 method: "Array.prototype.copyWithin()",
                 description: "Copia una parte del array dentro del mismo array.",
                 example: `let array = [10, 20, 30, 40];
-                          array.copyWithin(0, 2);`,
+array.copyWithin(0, 2);`,
                 execute: () => {
                     let array = [10, 20, 30, 40];
                     return array.copyWithin(0, 2); // [30, 40, 30, 40]
                 }
             },
-            // Agrega más ejemplos para cada método aquí siguiendo este formato.
+            {
+                method: "Array.prototype.entries()",
+                description: "Retorna un nuevo obj Array Iterator que contiene los pares clave/valor para cada índice de la matriz",
+                example: `let miarray = [1, 2, 3, 4, 5];
+let iterador1 = miarray.entries();
+
+console.log(iterador1.next()); // Obtenemos el primer valor del array
+let miValor = iterador1.next(); // Obtenemos el siguiente valor
+console.log(miValor);
+console.log(miValor.value[0]); // Obtenemos el índice del valor en el array (key)
+console.log(miValor.value[1]); // Obtenemos el valor de dicho índice en el array (value)
+
+let iterador2 = miarray.entries();
+for (let e of iterador2) {
+    console.log(e); // Cada elemento es un array [index, value]
+}`,
+execute: () => {
+        let miArray = [1, 2, 3, 4, 5];
+        let iterador = miArray.entries();
+        
+        // Crear un resultado para mostrar cómo funciona entries()
+        let resultados = [];
+        for (let pair of iterador) {
+            resultados.push(pair); // Agregamos cada par [index, value] al resultado
+        }
+        
+        return resultados; 
+    }
+            },
+            {
+                method: "Array.prototype.every()",
+                description: "Prueba si todos los elementos del arreglo pasan la prueba implementada por la función proporcionada. Devuelve valor booleano.",
+                example: `//Array de numeros
+let arrayNum = [1, 2, 3, 4, 5];
+
+//Array de numeros pares
+let arrayNumPares = [2, 4, 6, 8, 10];
+
+//Funcion que devuelve true cuando el parámetro es un número par
+function esPar(numero){
+    return numero % 2 == 0;
+}
+
+console.log(arrayNum.every(esPar)); //False
+console.log(arrayNumPares.every(esPar)); //True`,
+                execute: () => {
+let arrayNum = [1, 2, 3, 4, 5];
+let arrayNumPares = [2, 4, 6, 8, 10];
+function esPar(numero){
+    return numero % 2 == 0;
+}
+return "arrayNum.every(esPar); = " + arrayNum.every(esPar);//False
+                }
+            },
+            {
+                method: "Array.prototype.fill()",
+                description: "El método fill() cambia todos los elementos en un arreglo por un valor estático, desde el índice start (por defecto 0) hasta el índice end (por defecto array.length). Devuelve el arreglo modificado.",
+                example: `let arrayNum = [1, 2, 3, 4, 5];
+
+//Relenar con "J" desde la posición 2 hasta la 3
+
+console.log(arrayNum.fill("J", 2, 4));
+
+for(var i = 0; i<arrayNum.length; i++){
+    console.log(arrayNum[i]);
+}
+
+//Rdo = ["1", "2", "J", "J", "5"]
+
+//Rellenar con "J" Desde la posicion 3
+
+console.log(arrayNum.fill("J", 3 ));
+
+for(var i = 0; i<arrayNum.length; i++){
+    console.log(arrayNum[i]);
+}
+//Rdo = ["1", "2", "J", "J", "J"]
+
+//Rellenar con "J"
+console.log(arrayNum.fill("J"));
+
+for(var i = 0; i<arrayNum.length; i++){
+    console.log(arrayNum[i]);
+}
+
+//Rdo = ["J", "J", "J", "J", "J"]`,
+                execute: () => {let arrayNum = [1, 2, 3, 4, 5];
+
+arrayNum.fill("J", 2, 4);
+return arrayNum.toString();
+//Rdo = ["1", "2", "J", "J", "5"]
+
+                }
+            },
+            {
+                method: "Array.prototype.filter()",
+                description: "Devuelve un array con los elementos que cumplen la condición en forma de función pasada por parámetro.",
+                example: `const comunidadesAutonomas = [
+  "Andalucía",
+  "Aragón",
+  "Asturias",
+  "Cantabria",
+  "Castilla-La Mancha",
+  "Castilla y León",
+  "Cataluña",
+  "Extremadura",
+  "Galicia",
+  "Islas Baleares",
+  "Islas Canarias",
+  "La Rioja",
+  "Madrid",
+  "Murcia",
+  "Navarra",
+  "País Vasco",
+  "Valencia",
+  "Ceuta",
+  "Melilla"
+];
+
+//Función que recibe un número y dice si es mayor que 10
+function mayorQueDiez(cadena){
+    return cadena.length > 10;
+}
+
+comunidadesMayoresQueDiez = comunidadesAutonomas.filter(mayorQueDiez);
+console.log(comunidadesMayoresQueDiez.toString());
+`,
+                execute: () => {
+
+                    const comunidadesAutonomas = [
+  "Andalucía",
+  "Aragón",
+  "Asturias",
+  "Cantabria",
+  "Castilla-La Mancha",
+  "Castilla y León",
+  "Cataluña",
+  "Extremadura",
+  "Galicia",
+  "Islas Baleares",
+  "Islas Canarias",
+  "La Rioja",
+  "Madrid",
+  "Murcia",
+  "Navarra",
+  "País Vasco",
+  "Valencia",
+  "Ceuta",
+  "Melilla"
+];
+
+//Función que recibe un número y dice si es mayor que 10
+function mayorQueDiez(cadena){
+    return cadena.length > 10;
+}
+
+comunidadesMayoresQueDiez = comunidadesAutonomas.filter(mayorQueDiez);
+return comunidadesMayoresQueDiez.toString();
+
+
+                }
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {
+
+                }
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {
+
+                }
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {
+
+                }
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {
+
+                }
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {
+
+                }
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {
+
+                }
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {
+
+                }
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {
+
+                }
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {
+
+                }
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {
+
+                }
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {
+
+                }
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {
+
+                }
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {
+
+                }
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {
+
+                }
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {
+
+                }
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {
+
+                }
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {
+
+                }
+            },
+            
+
         ];
         // Renderizando las secciones dinámicamente
         const container = document.getElementById("examples");
