@@ -1,23 +1,3 @@
-// 8. find(): Devuelve el primer elemento que cumpla con una condición.
-console.log(array.find(n => n > 30)); // 40
-// 9. findIndex(): Devuelve el índice del primer elemento que cumpla una condición.
-console.log(array.findIndex(n => n > 30)); // 0
-// 10. findLast(): Devuelve el último elemento que cumpla una condición.
-console.log(array.findLast(n => n > 30)); // 50
-// 11. findLastIndex(): Índice del último elemento que cumpla una condición.
-console.log(array.findLastIndex(n => n > 30)); // 4
-// 12. flat(): Aplana un array multidimensional.
-let nested = [1, [2, [3, 4]]];
-console.log(nested.flat(2)); // [1, 2, 3, 4]
-// 13. flatMap(): Aplica una función y aplana el resultado.
-let duplicados = [1, 2, 3];
-console.log(duplicados.flatMap(n => [n, n * 2])); // [1, 2, 2, 4, 3, 6]
-// 14. forEach(): Ejecuta una función por cada elemento.
-array.forEach(n => console.log(n)); // 40, 0, 0, 40, 50
-// 15. includes(): Comprueba si el array contiene un valor.
-console.log(array.includes(40)); // true
-// 16. indexOf(): Encuentra el índice de un elemento.
-console.log(array.indexOf(40)); // 0
 // 17. join(): Combina los elementos del array en un string.
 console.log(array.join("-")); // "40-0-0-40-50"
 // 18. keys(): Iterador de índices.
@@ -26,9 +6,6 @@ console.log(key); // 0, 1, 2, 3, 4
 }
 // 19. lastIndexOf(): Encuentra el último índice de un elemento.
 console.log(array.lastIndexOf(40)); // 3
-// 20. map(): Crea un nuevo array transformando los elementos.
-let mapeado = array.map(n => n * 2);
-console.log(mapeado); // [80, 0, 0, 80, 100]
 // 21. pop(): Elimina el último elemento.
 console.log(array.pop()); // 50
 console.log(array); // [40, 0, 0, 40]

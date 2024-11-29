@@ -238,59 +238,206 @@ return comunidadesMayoresQueDiez.toString();
                 }
             },
             {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
+                method: "Array.prototype.find()",
+                description: "El método find() devuelve el valor del primer elemento del array que cumple la función de prueba proporcionada",
+                example: `let miArray = ["Publio", "Miguel", "Manuel", "Juan", "Luis", "Jesús"];
+
+//Función que nos dice si la cadena empieza por "J"
+function empiezaConJ(cadena){
+    return cadena.indexOf("J") == 0;
+}
+
+//Guardamos el primer elemento que empieza por "J"
+let primerNombreJ = miArray.find(empiezaConJ);
+console.log("El primer elemento que empieza por J es \${primerNombreJ}");`,
                 execute: () => {
+                    let miArray = ["Publio", "Miguel", "Manuel", "Juan", "Luis", "Jesús"];
+function empiezaConJ(cadena){
+    return cadena.indexOf("J") == 0;
+}
+let primerNombreJ = miArray.find(empiezaConJ);
+ return `El primer elemento que empieza por J es ${primerNombreJ}`;
+                }
+            },
+            {
+                method: "Array.prototype.findIndex()",
+                description: "El método findIndex() devuelve el índice del primer elemento de un array que cumpla con la función de prueba proporcionada. En caso contrario devuelve -1.",
+                example: `let miArray = ["Publio", "Miguel", "Manuel", "Juan", "Luis", "Jesús"];
+
+//Función que nos dice si la cadena empieza por "J"
+function empiezaConJ(cadena){
+    return cadena.indexOf("J") == 0;
+}
+
+//Guardamos el índice de la posición del elemento
+let posicionNombreJ = miArray.findIndex(empiezaConJ);
+
+
+console.log("El primer elemento que empieza por J se encuentra en la posición \${posicionNombreJ}");`,
+                execute: () => {
+                    let miArray = ["Publio", "Miguel", "Manuel", "Juan", "Luis", "Jesús"];
+function empiezaConJ(cadena){
+    return cadena.indexOf("J") == 0;
+}
+let posicionNombreJ = miArray.findIndex(empiezaConJ);
+
+
+ return `El primer elemento que empieza por J se encuentra en la posición ${posicionNombreJ}`;
+
 
                 }
             },
             {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
+                method: "Array.prototype.findLast()",
+                description: "El método findLast() devuelve el valor del último elemento del array que cumple la función de prueba proporcionada. De lo contrario devuelve -1",
+                example: `let miArray = ["Publio", "Miguel", "Manuel", "Juan", "Luis", "Jesús"];
+
+//Función que nos dice si la cadena empieza por "J"
+function empiezaConJ(cadena){
+    return cadena.indexOf("J") == 0;
+}
+
+//Guardamos el último elemento que empieza por "J"
+let primerNombreJ = miArray.findLast(empiezaConJ);
+console.log("El último elemento que empieza por J es \${primerNombreJ}");`,
                 execute: () => {
+                    let miArray = ["Publio", "Miguel", "Manuel", "Juan", "Luis", "Jesús"];
+function empiezaConJ(cadena){
+    return cadena.indexOf("J") == 0;
+}
+let primerNombreJ = miArray.findLast(empiezaConJ);
+ return `El último elemento que empieza por J es ${primerNombreJ}`;
+                }
+            },
+            {
+                method: "Array.prototype.findLastIndex()",
+                description: "El método findLastIndex() devuelve el índice del primer elemento de un array que cumpla con la función de prueba proporcionada. En caso contrario devuelve -1.",
+                example: `let miArray = ["Publio", "Miguel", "Manuel", "Juan", "Luis", "Jesús"];
+
+//Función que nos dice si la cadena empieza por "J"
+function empiezaConJ(cadena){
+    return cadena.indexOf("J") == 0;
+}
+
+//Guardamos el índice de la posición del elemento
+let posicionNombreJ = miArray.findLastIndex(empiezaConJ);
+
+
+console.log("El último elemento que empieza por J se encuentra en la posición \${posicionNombreJ}");`,
+                execute: () => {
+                    let miArray = ["Publio", "Miguel", "Manuel", "Juan", "Luis", "Jesús"];
+function empiezaConJ(cadena){
+    return cadena.indexOf("J") == 0;
+}
+let posicionNombreJ = miArray.findLastIndex(empiezaConJ);
+
+
+ return `El último elemento que empieza por J se encuentra en la posición ${posicionNombreJ}`;
+                }
+            },
+            {
+                method: "Array.prototype.flat()",
+                description: "El método flat() crea una nueva matriz con todos los elementos de sub-array concatenados recursivamente hasta la profundidad especificada",
+                example: `let arrayAnidado = [1, [2, [3, 4]]];
+
+let arrayAplastado = arrayAnidado.flat(2);
+
+console.log(arrayAplastado.toString());`,
+                execute: () => {
+                    let arrayAnidado = [1, [2, [3, 4]]];
+
+let arrayAplastado = arrayAnidado.flat(2);
+
+return arrayAplastado.toString();
+                }
+            },
+            {
+                method: "Array.prototype.map()",
+                description: "El método map() crea un nuevo array con los resultados de la llamada a la función pasada por parámetro aplicada a cada uno de los elementos",
+                example: `let array = ["Mi", "moto", "alpina", "derrapante"];
+
+function reemplazarVocales(cadena) {
+    return cadena.replace(/[aiou]/g, 'e');
+}
+
+let arrayMapeado = array.map(reemplazarVocales);
+
+console.log(arrayMapeado);`,
+                execute: () => {
+                    let array = ["Mi", "moto", "alpina", "derrapante"];
+
+function reemplazarVocales(cadena) {
+    return cadena.replace(/[aiou]/g, 'e');
+}
+
+let arrayMapeado = array.map(reemplazarVocales);
+
+return arrayMapeado.toString();
+                }
+            },
+            {
+                method: "Array.prototype.flatMap()",
+                description: "",
+                example: `// Una lista de frases
+const frases = [
+    "Hola mundo",
+    "Aprender JavaScript es divertido",
+    "flatMap es muy útil"
+];
+
+// Usamos flatMap para dividir las frases en palabras y aplanarlas
+const palabras = frases.flatMap(frase => frase.split(" "));
+
+console.log(palabras);
+// Resultado: ["Hola", "mundo", "Aprender", "JavaScript", "es", "divertido", "flatMap", "es", "muy", "útil"]
+`,
+                execute: () => {
+                    // Una lista de frases
+const frases = [
+    "Hola mundo",
+    "Aprender JavaScript es divertido",
+    "flatMap es muy útil"
+];
+
+const palabras = frases.flatMap(frase => frase.split(" "));
+
+return palabras.toString();
 
                 }
             },
             {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {
+                method: "Array.prototype.forEach",
+                description: "El método forEach() ejectuta la función pasada por parámetro en todos los elementos del array. No devuelve nada ni guarda los resultados como array Map()",
+                example: `let miArray = [1, 2, 3, 4, 5];
 
+miArray.forEach(n => console.log(n));`,
+                execute: () => {
+                    
+                    let miArray = [1, 2, 3, 4, 5];
+return miArray.toString();
                 }
             },
             {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {
+                method: "Array.prototype.indexOf",
+                description: "El método includes() Devuelve verdadero si el valor pasado por parámetro se encuentra en el array.",
+                example: `let miArray = [1, 2, 3, 4, 5];
 
+console.log(miArray.includes(5));`,
+                execute: () => {
+                    let miArray = [1, 2, 3, 4, 5];
+return miArray.includes(5);
                 }
             },
             {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {
+                method: "Array.prototype.indexOf()",
+                description: "Devuelve el índice en el cual se encuentra un elemento que coincida estrictamente con el valor del elemento pasado por parámetro. De lo contrario devuelve -1",
+                example: `let miArray = [1, 2, 3, 4, 5];
 
-                }
-            },
-            {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
+console.log(miArray.indexOf(3));`,
                 execute: () => {
+                    let miArray = [1, 2, 3, 4, 5];
 
-                }
-            },
-            {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {
-
+return miArray.indexOf(3);
                 }
             },
             {
