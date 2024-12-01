@@ -1,7 +1,3 @@
-
-
-// 24. reduceRight(): Igual que reduce, pero desde el final.
-console.log(array.reduceRight((acc, n) => acc - n, 0)); // -140
 // 25. reverse(): Invierte el orden del array.
 console.log(array.reverse()); // [60, 40, 0, 0, 40]
 // 26. shift(): Elimina el primer elemento.

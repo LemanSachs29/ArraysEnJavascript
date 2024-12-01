@@ -535,7 +535,7 @@ console.log(arrayContador.toString());
                     return arrayContador.toString();
                 }
             },
-            /*{
+            {
                 method: "Array.prototype.reduce()",
                 description: "",
                 example: `const numeros = [1, 2, 3, 4, 5];
@@ -545,7 +545,7 @@ const suma = numeros.reduce((acumulador, numeroActual) => {
     return acumulador + numeroActual;
 }, 0); // El valor inicial del acumulador es 0
 
-console.log(\`El resultado de la suma es: ${suma}\`);
+console.log(suma);
 // Expected output: "El resultado de la suma es: 15"`,
                 execute: () => {
                     const numeros = [1, 2, 3, 4, 5];
@@ -556,21 +556,56 @@ console.log(\`El resultado de la suma es: ${suma}\`);
 
                     return `El resultado de la suma es: ${suma}`;
                 }
-            },*/ 
+            },
 
             {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
+                method: "Array.prototype.reduceRight()",
+                description: "Aplica una función simultáneamente contra un acumulador y cada elemento de un array (de derecha a izquierda) para reducirlo a un único valor.",
+                example: `const palabras = ['Hola', 'cómo', 'estás'];
+
+// Usamos reduceRight para concatenar las palabras en orden inverso
+const fraseInvertida = palabras.reduceRight((acumulador, palabraActual) => {
+    return acumulador + ' ' + palabraActual;
+}, ''); // El valor inicial del acumulador es una cadena vacía
+
+console.log(fraseInvertida.trim()});
+// Expected output: "La frase concatenada al revés es: estás cómo Hola"
+`,
                 execute: () => {
+                    const palabras = ['Hola', 'cómo', 'estás'];
+
+
+                    const fraseInvertida = palabras.reduceRight((acumulador, palabraActual) => {
+                        return acumulador + ' ' + palabraActual;
+                    }, '');
+                    return `La frase concatenada al revés es: "${fraseInvertida.trim()}"`;
 
                 }
             },
             {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
+                method: "Array.prototype.reverse()",
+                description: "El método reverse() invierte el orden de los elementos de un array in place. El primer elemento pasa a ser el último y el último pasa a ser el primero.",
+                example: `var arrayNombre = ["J", "u", "a", "n", " ", "B","l", "a","n","c","o", " ", "M","o","y","a","n","o"];
+
+//Guardamos el contenido del array en una sola cadena
+var nombreDerecho = arrayNombre.join("");
+
+//Guardamos el contenido del array en una sola cadena dada la vuelta
+var nombreAlReves = arrayNombre.reverse().join("");
+
+console.log(nombreDerecho + " " + nombreAlReves)
+//Juan Blanco Moyano onayoM ocnalB nauJ`,
                 execute: () => {
+                    var arrayNombre = ["J", "u", "a", "n", " ", "B","l", "a","n","c","o", " ", "M","o","y","a","n","o"];
+
+//Guardamos el contenido del array en una sola cadena
+var nombreDerecho = arrayNombre.join("");
+
+//Guardamos el contenido del array en una sola cadena dada la vuelta
+var nombreAlReves = arrayNombre.reverse().join("");
+
+return nombreDerecho + " " + nombreAlReves;
+//Juan Blanco Moyano onayoM ocnalB nauJ
 
                 }
             },
