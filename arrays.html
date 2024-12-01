@@ -312,7 +312,7 @@ console.log("El último elemento que empieza por J es \${primerNombreJ}");`,
             },
             {
                 method: "Array.prototype.findLastIndex()",
-                description: "El método findLastIndex() devuelve el índice del primer elemento de un array que cumpla con la función de prueba proporcionada. En caso contrario devuelve -1.",
+                description: "El método findLastIndex() devuelve el índice del último elemento de un array que cumpla con la función de prueba proporcionada. En caso contrario devuelve -1.",
                 example: `let miArray = ["Publio", "Miguel", "Manuel", "Juan", "Luis", "Jesús"];
 
 //Función que nos dice si la cadena empieza por "J"
@@ -610,23 +610,351 @@ return nombreDerecho + " " + nombreAlReves;
                 }
             },
             {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {
+                method: "Array.prototype.shift()",
+                description: "El método shift() elimina el primer elemento del array y lo retorna. Este método modifica la longitud del array.",
+                example: `var numeros = [1, 2, 3, 4, 5];
 
+//Mostramos el array completo
+console.log(numeros);
+//Eliminamos el primer elemento
+numeros.shift();
+//Mostramos el array modificado
+console.log(numeros);`,
+                execute: () => {
+                    var numeros = [1, 2, 3, 4, 5];
+                    var numerosCopia = numeros.slice();
+                    var numEl = numeros.shift();
+                    return "Array original: " + numerosCopia.toString() + ". " + "Numero eliminado: " + numEl +". " + "Array final: " + numeros.toString() + ".";
+                }
+            },
+            {
+                method: "Array.prototype.slice()",
+                description: "El método slice() devuelve una copia de una parte del array dentro de un nuevo array empezando por inicio hasta fin (fin no incluido). El array original no se modificará.",
+                example: `const provinciasEspana = [
+    "Álava",
+    "Albacete",
+    "Alicante",
+    "Almería",
+    "Asturias",
+    "Ávila",
+    "Badajoz",
+    "Baleares",
+    "Barcelona",
+    "Burgos",
+    "Cáceres",
+    "Cádiz",
+    "Cantabria",
+    "Castellón",
+    "Ciudad Real",
+    "Córdoba",
+    "La Coruña",
+    "Cuenca",
+    "Gerona",
+    "Granada",
+    "Guadalajara",
+    "Guipúzcoa",
+    "Huelva",
+    "Huesca",
+    "Jaén",
+    "León",
+    "Lérida",
+    "Lugo",
+    "Madrid",
+    "Málaga",
+    "Murcia",
+    "Navarra",
+    "Orense",
+    "Palencia",
+    "Las Palmas",
+    "Pontevedra",
+    "La Rioja",
+    "Salamanca",
+    "Segovia",
+    "Sevilla",
+    "Soria",
+    "Santa Cruz de Tenerife",
+    "Tarragona",
+    "Teruel",
+    "Toledo",
+    "Valencia",
+    "Valladolid",
+    "Vizcaya",
+    "Zamora",
+    "Zaragoza"
+];
+//Función que devuelve true si la cadena empieza con S
+function empiezaConS(cadena){
+    return cadena.indexOf("S") == 0;
+}
+
+var primeraS = provinciasEspana.findIndex(empiezaConS);
+var ultimaS = provinciasEspana.findLastIndex(empiezaConS);
+
+//Creamos un array que será una copia del primer array, empezando por la primera provincia con S y terminando con la última.
+var provinciasConS = provinciasEspana.slice(primeraS, ultimaS+1);
+
+console.log(provinciasConS);
+`,
+                execute: () => {
+                    const provinciasEspana = [
+    "Álava", 
+    "Albacete",
+    "Alicante",
+    "Almería",
+    "Asturias",
+    "Ávila",
+    "Badajoz",
+    "Baleares",
+    "Barcelona",
+    "Burgos",
+    "Cáceres",
+    "Cádiz",
+    "Cantabria",
+    "Castellón",
+    "Ciudad Real",
+    "Córdoba",
+    "La Coruña",
+    "Cuenca",
+    "Gerona",
+    "Granada",
+    "Guadalajara",
+    "Guipúzcoa",
+    "Huelva",
+    "Huesca",
+    "Jaén",
+    "León",
+    "Lérida",
+    "Lugo",
+    "Madrid",
+    "Málaga",
+    "Murcia",
+    "Navarra",
+    "Orense",
+    "Palencia",
+    "Las Palmas",
+    "Pontevedra",
+    "La Rioja",
+    "Salamanca",
+    "Segovia",
+    "Sevilla",
+    "Soria",
+    "Santa Cruz de Tenerife",
+    "Tarragona",
+    "Teruel",
+    "Toledo",
+    "Valencia",
+    "Valladolid",
+    "Vizcaya",
+    "Zamora",
+    "Zaragoza"
+];
+function empiezaConS(cadena){
+    return cadena.indexOf("S") == 0;
+}
+
+var provinciasConS = provinciasEspana.slice(provinciasEspana.findIndex(empiezaConS), (provinciasEspana.findLastIndex(empiezaConS)+1));
+
+return provinciasConS.toString();
+
+                }
+            },
+            {
+                method: "Array.prototype.some()",
+                description: "Devuelve verdadero si algún elemento del array cumple con la condición pasada por parámetro",
+                example: `const array = [1, 2, 3, 4, 5];
+
+//Comprueba si el número es par
+const even = (element) => element % 2 === 0;
+
+console.log(array.some(even));
+// Salida: true
+`,
+                execute: () => {
+                    const array = [1, 2, 3, 4, 5];
+const even = (element) => element % 2 === 0;
+return array.some(even);
+                }
+            },
+            {
+                method: "Array.prototype.sort()",
+                description: "Ordena los elementos del array",
+                example: `const numerosAleatorios = [42.7, -15, 0, 3.14, -8.9, 23, -100.5, 7, -3.33, 88];
+numerosAleatorios.sort();
+console.log(numerosAleatorios.toString());
+`,
+                execute: () => {const numerosAleatorios = [42.7, -15, 0, 3.14, -8.9, 23, -100.5, 7, -3.33, 88];
+numerosAleatorios.sort();
+return numerosAleatorios.toString();
+}
+            },
+            {
+                method: "Array.prototype.splice()",
+                description: "El método splice() cambia el contenido de un array eliminando elementos existentes y/o agregando nuevos elementos.",
+                example: `array.splice(1, 2, 100, 200); // Elimina 2 elementos desde el índice 1 y agrega 100, 200
+console.log(array);`,
+                execute: () => {
+                    array.splice(1, 2, 100, 200); 
+return array;
+                }
+            },
+            {
+                method: "Array.prototype[@@iterator]()",
+                description: "El método Array.prototype[@@iterator]() es el mecanismo interno que permite a los arrays ser iterables. Esto significa que puedes recorrerlos usando estructuras como for...of, el operador spread (...), o funciones como Array.from().",
+                example: `let frutas = ["manzana", "plátano", "naranja"];
+let iterable = frutas[Symbol.iterator]();
+let nuevoArray = Array.from(iterable); // Usa el iterador
+console.log(nuevoArray); // ["manzana", "plátano", "naranja"]`,
+                execute: () => {
+                    let frutas = ["manzana", "plátano", "naranja"];
+let iterable = frutas[Symbol.iterator]();
+let nuevoArray = Array.from(iterable);
+return nuevoArray.toString();
                 }
             },
             {
                 method: "Array.prototype.",
                 description: "",
                 example: ``,
-                execute: () => {
-
-                }
+                execute: () => {}
             },
-
-
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {}
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {}
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {}
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {}
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {}
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {}
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {}
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {}
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {}
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {}
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {}
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {}
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {}
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {}
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {}
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {}
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {}
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {}
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {}
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {}
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {}
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {}
+            },
+            {
+                method: "Array.prototype.",
+                description: "",
+                example: ``,
+                execute: () => {}
+            },
         ];
         // Renderizando las secciones dinámicamente
         const container = document.getElementById("examples");
