@@ -1,19 +1,5 @@
-// 17. join(): Combina los elementos del array en un string.
-console.log(array.join("-")); // "40-0-0-40-50"
-// 18. keys(): Iterador de índices.
-for (const key of array.keys()) {
-console.log(key); // 0, 1, 2, 3, 4
-}
-// 19. lastIndexOf(): Encuentra el último índice de un elemento.
-console.log(array.lastIndexOf(40)); // 3
-// 21. pop(): Elimina el último elemento.
-console.log(array.pop()); // 50
-console.log(array); // [40, 0, 0, 40]
-// 22. push(): Agrega elementos al final.
-array.push(60);
-console.log(array); // [40, 0, 0, 40, 60]
-// 23. reduce(): Reduce el array a un valor acumulado.
-console.log(array.reduce((acc, n) => acc + n, 0)); // 140
+
+
 // 24. reduceRight(): Igual que reduce, pero desde el final.
 console.log(array.reduceRight((acc, n) => acc - n, 0)); // -140
 // 25. reverse(): Invierte el orden del array.

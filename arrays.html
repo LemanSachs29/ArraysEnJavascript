@@ -91,18 +91,18 @@ let iterador2 = miarray.entries();
 for (let e of iterador2) {
     console.log(e); // Cada elemento es un array [index, value]
 }`,
-execute: () => {
-        let miArray = [1, 2, 3, 4, 5];
-        let iterador = miArray.entries();
-        
-        // Crear un resultado para mostrar cómo funciona entries()
-        let resultados = [];
-        for (let pair of iterador) {
-            resultados.push(pair); // Agregamos cada par [index, value] al resultado
-        }
-        
-        return resultados; 
-    }
+                execute: () => {
+                    let miArray = [1, 2, 3, 4, 5];
+                    let iterador = miArray.entries();
+
+                    // Crear un resultado para mostrar cómo funciona entries()
+                    let resultados = [];
+                    for (let pair of iterador) {
+                        resultados.push(pair); // Agregamos cada par [index, value] al resultado
+                    }
+
+                    return resultados;
+                }
             },
             {
                 method: "Array.prototype.every()",
@@ -121,12 +121,12 @@ function esPar(numero){
 console.log(arrayNum.every(esPar)); //False
 console.log(arrayNumPares.every(esPar)); //True`,
                 execute: () => {
-let arrayNum = [1, 2, 3, 4, 5];
-let arrayNumPares = [2, 4, 6, 8, 10];
-function esPar(numero){
-    return numero % 2 == 0;
-}
-return "arrayNum.every(esPar); = " + arrayNum.every(esPar);//False
+                    let arrayNum = [1, 2, 3, 4, 5];
+                    let arrayNumPares = [2, 4, 6, 8, 10];
+                    function esPar(numero) {
+                        return numero % 2 == 0;
+                    }
+                    return "arrayNum.every(esPar); = " + arrayNum.every(esPar);//False
                 }
             },
             {
@@ -161,11 +161,12 @@ for(var i = 0; i<arrayNum.length; i++){
 }
 
 //Rdo = ["J", "J", "J", "J", "J"]`,
-                execute: () => {let arrayNum = [1, 2, 3, 4, 5];
+                execute: () => {
+                    let arrayNum = [1, 2, 3, 4, 5];
 
-arrayNum.fill("J", 2, 4);
-return arrayNum.toString();
-//Rdo = ["1", "2", "J", "J", "5"]
+                    arrayNum.fill("J", 2, 4);
+                    return arrayNum.toString();
+                    //Rdo = ["1", "2", "J", "J", "5"]
 
                 }
             },
@@ -205,34 +206,34 @@ console.log(comunidadesMayoresQueDiez.toString());
                 execute: () => {
 
                     const comunidadesAutonomas = [
-  "Andalucía",
-  "Aragón",
-  "Asturias",
-  "Cantabria",
-  "Castilla-La Mancha",
-  "Castilla y León",
-  "Cataluña",
-  "Extremadura",
-  "Galicia",
-  "Islas Baleares",
-  "Islas Canarias",
-  "La Rioja",
-  "Madrid",
-  "Murcia",
-  "Navarra",
-  "País Vasco",
-  "Valencia",
-  "Ceuta",
-  "Melilla"
-];
+                        "Andalucía",
+                        "Aragón",
+                        "Asturias",
+                        "Cantabria",
+                        "Castilla-La Mancha",
+                        "Castilla y León",
+                        "Cataluña",
+                        "Extremadura",
+                        "Galicia",
+                        "Islas Baleares",
+                        "Islas Canarias",
+                        "La Rioja",
+                        "Madrid",
+                        "Murcia",
+                        "Navarra",
+                        "País Vasco",
+                        "Valencia",
+                        "Ceuta",
+                        "Melilla"
+                    ];
 
-//Función que recibe un número y dice si es mayor que 10
-function mayorQueDiez(cadena){
-    return cadena.length > 10;
-}
+                    //Función que recibe un número y dice si es mayor que 10
+                    function mayorQueDiez(cadena) {
+                        return cadena.length > 10;
+                    }
 
-comunidadesMayoresQueDiez = comunidadesAutonomas.filter(mayorQueDiez);
-return comunidadesMayoresQueDiez.toString();
+                    comunidadesMayoresQueDiez = comunidadesAutonomas.filter(mayorQueDiez);
+                    return comunidadesMayoresQueDiez.toString();
 
 
                 }
@@ -252,11 +253,11 @@ let primerNombreJ = miArray.find(empiezaConJ);
 console.log("El primer elemento que empieza por J es \${primerNombreJ}");`,
                 execute: () => {
                     let miArray = ["Publio", "Miguel", "Manuel", "Juan", "Luis", "Jesús"];
-function empiezaConJ(cadena){
-    return cadena.indexOf("J") == 0;
-}
-let primerNombreJ = miArray.find(empiezaConJ);
- return `El primer elemento que empieza por J es ${primerNombreJ}`;
+                    function empiezaConJ(cadena) {
+                        return cadena.indexOf("J") == 0;
+                    }
+                    let primerNombreJ = miArray.find(empiezaConJ);
+                    return `El primer elemento que empieza por J es ${primerNombreJ}`;
                 }
             },
             {
@@ -276,13 +277,13 @@ let posicionNombreJ = miArray.findIndex(empiezaConJ);
 console.log("El primer elemento que empieza por J se encuentra en la posición \${posicionNombreJ}");`,
                 execute: () => {
                     let miArray = ["Publio", "Miguel", "Manuel", "Juan", "Luis", "Jesús"];
-function empiezaConJ(cadena){
-    return cadena.indexOf("J") == 0;
-}
-let posicionNombreJ = miArray.findIndex(empiezaConJ);
+                    function empiezaConJ(cadena) {
+                        return cadena.indexOf("J") == 0;
+                    }
+                    let posicionNombreJ = miArray.findIndex(empiezaConJ);
 
 
- return `El primer elemento que empieza por J se encuentra en la posición ${posicionNombreJ}`;
+                    return `El primer elemento que empieza por J se encuentra en la posición ${posicionNombreJ}`;
 
 
                 }
@@ -302,11 +303,11 @@ let primerNombreJ = miArray.findLast(empiezaConJ);
 console.log("El último elemento que empieza por J es \${primerNombreJ}");`,
                 execute: () => {
                     let miArray = ["Publio", "Miguel", "Manuel", "Juan", "Luis", "Jesús"];
-function empiezaConJ(cadena){
-    return cadena.indexOf("J") == 0;
-}
-let primerNombreJ = miArray.findLast(empiezaConJ);
- return `El último elemento que empieza por J es ${primerNombreJ}`;
+                    function empiezaConJ(cadena) {
+                        return cadena.indexOf("J") == 0;
+                    }
+                    let primerNombreJ = miArray.findLast(empiezaConJ);
+                    return `El último elemento que empieza por J es ${primerNombreJ}`;
                 }
             },
             {
@@ -326,13 +327,13 @@ let posicionNombreJ = miArray.findLastIndex(empiezaConJ);
 console.log("El último elemento que empieza por J se encuentra en la posición \${posicionNombreJ}");`,
                 execute: () => {
                     let miArray = ["Publio", "Miguel", "Manuel", "Juan", "Luis", "Jesús"];
-function empiezaConJ(cadena){
-    return cadena.indexOf("J") == 0;
-}
-let posicionNombreJ = miArray.findLastIndex(empiezaConJ);
+                    function empiezaConJ(cadena) {
+                        return cadena.indexOf("J") == 0;
+                    }
+                    let posicionNombreJ = miArray.findLastIndex(empiezaConJ);
 
 
- return `El último elemento que empieza por J se encuentra en la posición ${posicionNombreJ}`;
+                    return `El último elemento que empieza por J se encuentra en la posición ${posicionNombreJ}`;
                 }
             },
             {
@@ -346,9 +347,9 @@ console.log(arrayAplastado.toString());`,
                 execute: () => {
                     let arrayAnidado = [1, [2, [3, 4]]];
 
-let arrayAplastado = arrayAnidado.flat(2);
+                    let arrayAplastado = arrayAnidado.flat(2);
 
-return arrayAplastado.toString();
+                    return arrayAplastado.toString();
                 }
             },
             {
@@ -366,13 +367,13 @@ console.log(arrayMapeado);`,
                 execute: () => {
                     let array = ["Mi", "moto", "alpina", "derrapante"];
 
-function reemplazarVocales(cadena) {
-    return cadena.replace(/[aiou]/g, 'e');
-}
+                    function reemplazarVocales(cadena) {
+                        return cadena.replace(/[aiou]/g, 'e');
+                    }
 
-let arrayMapeado = array.map(reemplazarVocales);
+                    let arrayMapeado = array.map(reemplazarVocales);
 
-return arrayMapeado.toString();
+                    return arrayMapeado.toString();
                 }
             },
             {
@@ -393,15 +394,15 @@ console.log(palabras);
 `,
                 execute: () => {
                     // Una lista de frases
-const frases = [
-    "Hola mundo",
-    "Aprender JavaScript es divertido",
-    "flatMap es muy útil"
-];
+                    const frases = [
+                        "Hola mundo",
+                        "Aprender JavaScript es divertido",
+                        "flatMap es muy útil"
+                    ];
 
-const palabras = frases.flatMap(frase => frase.split(" "));
+                    const palabras = frases.flatMap(frase => frase.split(" "));
 
-return palabras.toString();
+                    return palabras.toString();
 
                 }
             },
@@ -412,9 +413,9 @@ return palabras.toString();
 
 miArray.forEach(n => console.log(n));`,
                 execute: () => {
-                    
+
                     let miArray = [1, 2, 3, 4, 5];
-return miArray.toString();
+                    return miArray.toString();
                 }
             },
             {
@@ -425,7 +426,7 @@ return miArray.toString();
 console.log(miArray.includes(5));`,
                 execute: () => {
                     let miArray = [1, 2, 3, 4, 5];
-return miArray.includes(5);
+                    return miArray.includes(5);
                 }
             },
             {
@@ -437,9 +438,126 @@ console.log(miArray.indexOf(3));`,
                 execute: () => {
                     let miArray = [1, 2, 3, 4, 5];
 
-return miArray.indexOf(3);
+                    return miArray.indexOf(3);
                 }
             },
+            {
+                method: "Array.prototype.join()",
+                description: "El método join() une todos los elementos de una matriz (o un objeto similar a una matriz) en una cadena y devuelve esta cadena.",
+                example: `let miNombre = ["Juan", "Blanco", "Moyano"];
+console.log(miNombre.join());`,
+
+                execute: () => {
+                    let miNombre = ["Juan", "Blanco", "Moyano"];
+                    miNombre = miNombre.join(' ');
+                    return miNombre.toString();
+                }
+            },
+            {
+                method: "Array.prototype.keys()",
+                description: "El método keys() devuelve un nuevo objeto Array Iterator que contiene las claves para cada indice en el arreglo.",
+                example: `var miNombre = ["Juan", "Blanco", "Moyano"];
+var iterador = miNombre.keys();
+var keys = [];
+
+for (const key of iterador) {
+  keys.push(key);
+}
+
+
+console.log(keys.toString());`,
+                execute: () => {
+                    var miNombre = ["Juan", "Blanco", "Moyano"];
+                    var iterador = miNombre.keys();
+                    var keys = [];
+
+                    for (const key of iterador) {
+                        keys.push(key);
+                    }
+
+                    return keys.toString();
+
+                }
+            },
+            {
+                method: "Array.prototype.lastIndexOf()",
+                description: "El método lastIndexOf() devuelve el último índice en el que un cierto elemento puede encontrarse en el arreglo, ó -1 si el elemento no se encontrara. El arreglo es recorrido en sentido contrario, empezando por el índice fromIndex.",
+                example: `const numeros = [5, 8, 2, 10, 1, 0 ,9, 8, 15];
+
+console.log(numeros.lastIndexOf(8));
+//Salida esperada 7`,
+                execute: () => {
+                    const numeros = [5, 8, 2, 10, 1, 0, 9, 8, 15];
+                    var lastIndex = numeros.lastIndexOf(8);
+                    return `La última posición del 8 es la número ${lastIndex}`;
+                }
+            },
+            {
+                method: "Array.prototype.pop()",
+                description: "El método pop() elimina el último elemento de un array y lo devuelve. Este método cambia la longitud del array.",
+                example: `const animales = ['gato', 'perro', 'watusi', 'tortuga', 'comunista'];
+
+console.log(animales);
+
+var animalSacado = animales.pop();
+// Expected output: "comunsita"
+
+console.log(animales);
+console.log("Animal sacado: " + animalSacado);`,
+                execute: () => {
+                    var animales = ['gato', 'perro', 'watusi', 'tortuga', 'comunista'];
+                    var animales2 = ['gato', 'perro', 'watusi', 'tortuga', 'comunista'];
+
+                    var animalSacado = animales.pop();
+                    // Expected output: "comunsita"
+                    return `Lista de animales original: ${animales2.toString()}. Se ha sacado el animal: ${animalSacado}. Lista de animales original: ${animales.toString()}`;
+
+                }
+            },
+            {
+                method: "Array.prototype.push()",
+                description: "El método push() añade uno o más elementos al final de un array y devuelve la nueva longitud del array",
+                example: `let arrayContador = [];
+
+for (var i = 1; i<= 10; i++){
+    arrayContador.push(i);
+}
+
+console.log(arrayContador.toString());
+//Salida Esperada 1, 2, 3, 4, 5, 6, 7, 8, 9, 10`,
+                execute: () => {
+                    let arrayContador = [];
+
+                    for (var i = 1; i <= 10; i++) {
+                        arrayContador.push(i);
+                    }
+
+                    return arrayContador.toString();
+                }
+            },
+            /*{
+                method: "Array.prototype.reduce()",
+                description: "",
+                example: `const numeros = [1, 2, 3, 4, 5];
+
+// Usamos reduce para sumar todos los números del array
+const suma = numeros.reduce((acumulador, numeroActual) => {
+    return acumulador + numeroActual;
+}, 0); // El valor inicial del acumulador es 0
+
+console.log(\`El resultado de la suma es: ${suma}\`);
+// Expected output: "El resultado de la suma es: 15"`,
+                execute: () => {
+                    const numeros = [1, 2, 3, 4, 5];
+
+                    const suma = numeros.reduce((acumulador, numeroActual) => {
+                        return acumulador + numeroActual;
+                    }, 0);
+
+                    return `El resultado de la suma es: ${suma}`;
+                }
+            },*/ 
+
             {
                 method: "Array.prototype.",
                 description: "",
@@ -472,55 +590,7 @@ return miArray.indexOf(3);
 
                 }
             },
-            {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {
 
-                }
-            },
-            {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {
-
-                }
-            },
-            {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {
-
-                }
-            },
-            {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {
-
-                }
-            },
-            {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {
-
-                }
-            },
-            {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {
-
-                }
-            },
-            
 
         ];
         // Renderizando las secciones dinámicamente
