@@ -780,8 +780,7 @@ return array.some(even);
                 description: "Ordena los elementos del array",
                 example: `const numerosAleatorios = [42.7, -15, 0, 3.14, -8.9, 23, -100.5, 7, -3.33, 88];
 numerosAleatorios.sort();
-console.log(numerosAleatorios.toString());
-`,
+console.log(numerosAleatorios.toString());`,
                 execute: () => {const numerosAleatorios = [42.7, -15, 0, 3.14, -8.9, 23, -100.5, 7, -3.33, 88];
 numerosAleatorios.sort();
 return numerosAleatorios.toString();
@@ -790,11 +789,30 @@ return numerosAleatorios.toString();
             {
                 method: "Array.prototype.splice()",
                 description: "El método splice() cambia el contenido de un array eliminando elementos existentes y/o agregando nuevos elementos.",
-                example: `array.splice(1, 2, 100, 200); // Elimina 2 elementos desde el índice 1 y agrega 100, 200
-console.log(array);`,
+                example: `// Array inicial
+let frutas = ["manzana", "plátano", "naranja", "uva"];
+
+// Eliminar elementos
+// Elimina 1 elemento desde el índice 2 ("naranja")
+let eliminados = frutas.splice(2, 1);
+console.log("Frutas después de eliminar:", frutas); // ["manzana", "plátano", "uva"]
+console.log("Elemento eliminado:", eliminados); // ["naranja"]
+
+// Insertar elementos
+// Inserta "mango" y "fresa" en el índice 1
+frutas.splice(1, 0, "mango", "fresa");
+console.log("Frutas después de insertar:", frutas); // ["manzana", "mango", "fresa", "plátano", "uva"]
+
+// Reemplazar elementos
+// Reemplaza 2 elementos a partir del índice 3 por "kiwi" y "melón"
+frutas.splice(3, 2, "kiwi", "melón");
+console.log("Frutas después de reemplazar:", frutas); // ["manzana", "mango", "fresa", "kiwi", "melón"]`,
                 execute: () => {
-                    array.splice(1, 2, 100, 200); 
-return array;
+let frutas = ["manzana", "plátano", "naranja", "uva"];
+let eliminados = frutas.splice(2, 1);
+frutas.splice(1, 0, "mango", "fresa");
+frutas.splice(3, 2, "kiwi", "melón");
+ return "Frutas después de reemplazar: " + frutas.toString();
                 }
             },
             {
@@ -811,150 +829,185 @@ let nuevoArray = Array.from(iterable);
 return nuevoArray.toString();
                 }
             },
+           /* {
+                method: "Array.prototype.toLocaleString()",
+                description: "El método toLocaleString() devuelve una cadena de texto representando los elementos del array. Los elementos son convertidos a texto usando su método toLocaleString y dichos Strings son separados por un caracter específico para la localidad (como una coma para la separación de decimales ",").",
+                example: `let fechas = [new Date(2024, 0, 1), new Date(2024, 11, 25), new Date(2025, 6, 4)];
+
+// Formatear cada fecha y unirlas con un separador personalizado
+let cadenaFechas = fechas.map(fecha => fecha.toLocaleString('es-ES', { dateStyle: 'full' })).join(' | ');
+
+console.log(cadenaFechas);
+// Salida:
+// "lunes, 1 de enero de 2024 | miércoles, 25 de diciembre de 2024 | viernes, 4 de julio de 2025"
+`,
+                execute: () => {
+                    let fechas = [new Date(2024, 0, 1), new Date(2024, 11, 25), new Date(2025, 6, 4)];
+let cadenaFechas = fechas.map(fecha => fecha.toLocaleString('es-ES', { dateStyle: 'full' })).join(' | ');
+return cadenaFechas.toString();
+
+
+                }
+            },*/
             {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {}
+                method: "Array.prototype.toReversed()",
+                description: "El método toReversed(): Devuelve una copia del array invertida (sin modificar el original).",
+                example: `var arrayNombre = ["J", "u", "a", "n", " ", "B","l", "a","n","c","o", " ", "M","o","y","a","n","o"];
+
+
+//Guardamos el contenido del array en una sola cadena dada la vuelta
+var nombreAlReves = arrayNombre.toReversed();
+
+console.log(arrayNombre.toString() + "  " + nombreAlReves.toString());
+//Juan Blanco Moyano onayoM ocnalB nauJ`,
+                execute: () => {var arrayNombre = ["J", "u", "a", "n", " ", "B","l", "a","n","c","o", " ", "M","o","y","a","n","o"];
+var nombreAlReves = arrayNombre.toReversed();
+return arrayNombre.toString() + "  " + nombreAlReves.toString();
+            }
             },
             {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {}
+                method: "Array.prototype.toSorted()",
+                description: "El método toSorted() Devuelve una copia ordenada.",
+                example: `const numerosAleatorios = [42.7, -15, 0, 3.14, -8.9, 23, -100.5, 7, -3.33, 88];
+var numerosAleatoriosOrdenados = numerosAleatorios.sort();
+console.log(numerosAleatoriosOrdenados.toString());`,
+                execute: () => {
+                    const numerosAleatorios = [42.7, -15, 0, 3.14, -8.9, 23, -100.5, 7, -3.33, 88];
+var numerosAleatoriosOrdenados = numerosAleatorios.sort();
+return numerosAleatoriosOrdenados.toString();
+                }
             },
             {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {}
+                method: "Array.prototype.toSpliced()",
+                description: "El método toSpliced devuelve una copia del array modificado según parámetros",
+                example: `// Array inicial
+let frutas = ["manzana", "plátano", "naranja", "uva"];
+
+// Eliminar elementos
+// Elimina 1 elemento desde el índice 2 ("naranja")
+let menosFrutas = frutas.toSpliced(2, 1);
+console.log("Array modificado: " + menosFrutas.toString()); // ["naranja"]
+`,
+                execute: () => {
+let frutas = ["manzana", "plátano", "naranja", "uva"];
+let menosFrutas = frutas.toSpliced(2, 1);
+return "Array modificado: " + menosFrutas.toString();
+                }
             },
             {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {}
+                method: "Array.prototype.toString",
+                description: "El método toString() devuelve una cadena con el contenido del array",
+                example: `var cancionesPopJapones = [
+    "Miki Matsubara - Stay With Me",
+    "Anri - Last Summer Whisper",
+    "Anri - I Can't Stop The Loneliness",
+    "Tatsuro Yamashita - Sparkle",
+    "Mariya Takeuchi - Plastic Love",
+    "Junko Yagami - 1984",
+    "Yumi Matsutoya - Rouge no Dengon",
+    "Taeko Ohnuki - 4:00 A.M.",
+    "Masayoshi Takanaka - Blue Lagoon",
+    "Akina Nakamori - Slow Motion",
+    "Momoe Yamaguchi - Cosmos",
+    "Tomoko Aran - I'm In Love",
+    "Haruomi Hosono - Sports Men",
+    "Kyoko Koizumi - Nantettatte Idol",
+    "Seiko Matsuda - Sweet Memories",
+    "Hiromi Iwasaki - Madonna Tachi no Lullaby",
+    "Mayumi Itsuwa - Koibito Yo",
+    "Sadayuki Nakamura - Lonely Lonely",
+    "Makoto Matsushita - Love Was Really Gone",
+    "Miho Nakayama - You're My Only Shinin' Star",
+    "Keiko Masuda - Glass no Ringo"
+];
+
+console.log(cancionesPopJapones.toString());`,
+                execute: () => {
+                    var cancionesPopJapones = [
+    "Miki Matsubara - Stay With Me",
+    "Anri - Last Summer Whisper",
+    "Anri - I Can't Stop The Loneliness",
+    "Tatsuro Yamashita - Sparkle",
+    "Mariya Takeuchi - Plastic Love",
+    "Junko Yagami - 1984",
+    "Yumi Matsutoya - Rouge no Dengon",
+    "Taeko Ohnuki - 4:00 A.M.",
+    "Masayoshi Takanaka - Blue Lagoon",
+    "Akina Nakamori - Slow Motion",
+    "Momoe Yamaguchi - Cosmos",
+    "Tomoko Aran - I'm In Love",
+    "Haruomi Hosono - Sports Men",
+    "Kyoko Koizumi - Nantettatte Idol",
+    "Seiko Matsuda - Sweet Memories",
+    "Hiromi Iwasaki - Madonna Tachi no Lullaby",
+    "Mayumi Itsuwa - Koibito Yo",
+    "Sadayuki Nakamura - Lonely Lonely",
+    "Makoto Matsushita - Love Was Really Gone",
+    "Miho Nakayama - You're My Only Shinin' Star",
+    "Keiko Masuda - Glass no Ringo"
+];
+
+return "Las mejores cancioenes de pop Japonés: " + cancionesPopJapones.toString();
+                }
             },
             {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {}
+                method: "Array.prototype.unshift()",
+                description: "El metodo unshift() inserta el elemento pasado por parámetro al principio del array",
+                example: `let cuentaAtras = [];
+
+for (var i = 1; i<= 10; i++){
+    cuentaAtras.unshift(i);
+}
+
+console.log(cuentaAtras.toString())`,
+                execute: () => {
+                    let cuentaAtras = [];
+
+for (var i = 1; i<= 10; i++){
+    cuentaAtras.unshift(i);
+}
+
+return cuentaAtras.toString();
+                }
             },
             {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {}
+                method: "Array.prototype.values()",
+                description: "El método Array.prototype.values() devuelve un iterador para los valores de un array. Este iterador permite recorrer los elementos del array uno por uno.",
+                example: `let alimentos = ["tomate", "nabo", "almendra"];
+
+// Usar values() con for...of
+for (let alimento of alimentos.values()) {
+    console.log(fruta);
+}
+// Salida:
+// "manzana"
+// "plátano"
+// "naranja"
+`,
+                execute: () => {
+                    let alimentos = ["tomate", "nabo", "almendra"];
+return alimentos.toString();
+                }
             },
             {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {}
-            },
-            {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {}
-            },
-            {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {}
-            },
-            {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {}
-            },
-            {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {}
-            },
-            {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {}
-            },
-            {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {}
-            },
-            {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {}
-            },
-            {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {}
-            },
-            {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {}
-            },
-            {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {}
-            },
-            {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {}
-            },
-            {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {}
-            },
-            {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {}
-            },
-            {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {}
-            },
-            {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {}
-            },
-            {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {}
-            },
-            {
-                method: "Array.prototype.",
-                description: "",
-                example: ``,
-                execute: () => {}
-            },
+                method: "Array.prototype.with()",
+                description: "El método with() devuelve una copia modificada del array donde se sustituye el valor en la posición indicada por el parámetro uno por el valor especificado por el parámetro 2",
+                example: `let alimentos = ["tomate", "nabo", "almendra"];
+
+console.log(alimentos.toString());
+
+alimentos2 = alimentos.with(1, "rabo de gitano");
+
+console.log(alimentos2.toString());
+`,
+                execute: () => {
+                    let alimentos = ["tomate", "nabo", "almendra"];
+alimentos2 = alimentos.with(1, "rabo de gitano");
+
+return alimentos2.toString();
+
+                }
+            }
         ];
         // Renderizando las secciones dinámicamente
         const container = document.getElementById("examples");
