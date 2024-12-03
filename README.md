@@ -1,5 +1,5 @@
 <div style="text-align: center;">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvnavu8RYs5AJG7XZWkP5GxxT7-Nk8Cu6Uyg&s" alt="Logo de PHP" style="width: 250px;">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvnavu8RYs5AJG7XZWkP5GxxT7-Nk8Cu6Uyg&s" alt="Logo de Javascript" style="width: 250px;">
 </div>
 
 
